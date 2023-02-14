@@ -1,21 +1,40 @@
 #include <iostream>
 using namespace std;
 
-void swap(int* num1, int* num2) {
-	int swapp;
-	swapp = *num1;
-	*num1 = *num2;
-	*num2 = swapp;
-}
-
 
 int main() {
 	int num1, num2;
-	cout << "Enter 1 number: ";
+	char chaar{};
+	cout << "Enter 1 number ->";
 	cin >> num1;
-	cout << "Enter 2 number: ";
+	cout << "Enter 2 number ->";
 	cin >> num2;
-
-	swap(&num1, &num2);
-	cout << "Res -> " << num1 << "\t" << num2;
+	int* pnum1 = &num1, * pnum2 = &num2;
+	cout << "Enter [ + | - | * | / ] -> ";
+	cin >> chaar;
+	switch (chaar)
+	{
+	case '+':
+	{
+		cout << *pnum1 << " + " << *pnum2 << " = " << *pnum1 + *pnum2;
+	}break;
+	case '-':
+	{
+		cout << *pnum1 << " - " << *pnum2 << " = " << *pnum1 - *pnum2;
+	}break;
+	case '*':
+	{
+		cout << *pnum1 << " * " << *pnum2 << " = " << *pnum1 * *pnum2;
+	}break;
+	case '/':
+	{
+		if (*pnum2 == 0)
+		{
+			cout << "It`s unreal";
+		}
+		cout << *pnum1 << " / " << *pnum2 << " = " << *pnum1 / *pnum2;
+	}break;
+	default:
+		break;
+	}
 }
